@@ -1,38 +1,212 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (min-width: 1024px) {
+  .Content{
+    padding: 30px;
+    /* padding-top: 20px; */
+    width: 88%;
+    position: absolute;
+    left: 12%;
+    top: 60px;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media only screen and (max-width: 1024px) {
+  #AppName {
+      display: none;
+  }
+  .Header{
+    display: none;
+  }
+  .Content{
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 88%;
+    position: absolute;
+    left: 12%;
+    top: 5px;
+  }
 }
-
+.App {
+  background-color: rgb(244, 247, 247);
+  color: black;
+  font-size: 120%;
+}
+#container{
+  padding: 0;
+  margin: 0;
+}
+.Header{
+  background-color: rgb(85, 85, 206);
+  height: 60px;
+  width: 88%;
+  font-size: larger;
+  position: absolute;
+  top: 0;
+  left: 12%;
+  margin: 0;
+}
+#headerbutton{
+  background-color: rgb(85, 85, 206);
+  border: none;
+  color: white;
+  height: 50px;
+  width: auto;
+}
+#headericon{
+  background-color: rgb(117, 117, 199);
+  border-radius: 50%;
+  color: white;
+  width: 50px;
+  height: 50px;
+  padding: 20%;
+}
+#headerbutton :hover{
+  color: #90b0eb;
+}
+#headericon :hover{
+  color: #90b0eb;
+}
+#gridRow{
+  height: 8vh;
+  /* display: flex; */
+  vertical-align: baseline;
+}
+.Footer{
+  background-color:rgb(233, 231, 231);
+  height: 60px;
+  width: 100%;
+  padding-left: 15%;
+  /* margin-left: 14vw; */
+}
+#AppName{
+  color: white;
+  font-size: x-large;
+  font-style: italic;
+}
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.linkStyle{
+  color: white;
+  text-decoration: none;
+}
+link:hover{
+  color: black;
+}
+.Body{
+  color: black;
+  width: 100%;
+  margin: 0;
+  /* display: flex; */
+}
+#space{
+  margin-left: 10%;
+}
+#tableStyle{
+  border: 1px solid black;
+  padding: 5vh;
+  width: 100%;
+  border-collapse: collapse;
+}
+#tableStyle th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #9690eb;
+  color: rgb(5, 5, 5);
+}
+#tableStyle tr:nth-child(even){
+  background-color: #d3d3f1;
+}
+#tableStyle tr:hover{
+  color: rgb(50, 98, 189);
+}
+#searchbox{
+  width: 200px;
+  border: black 2px solid;
+  border-radius: 10px;
+}
+#addInput{
+  width: 50%;
+  height: 10%;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 6px;
+}
+#elementBox{
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 40%;
+  padding: 5%;
+}
+#popmodal{
+  height: 600px;
+  width: 800px;
+  font-size: larger;
+}
+#history{
+  height: 600px;
+}
+#vision{
+  height: 600px;
+}
+#achievements{
+  height: 600px;
+}
+#selectButton{
+  background-color: white;
+  color: black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#selectButton:current{
+  background-Color: blueviolet; 
+  color: black;
+}
+#searchBar{
+  background-color: rgb(242, 246, 248);
+  font-style: bold;
+  border-color: rgb(231, 231, 231);
+  border-style: inset;
+  width: 90%;
+  padding: 2%;
+  margin: auto;
+  text-align: center;
+}
+#searchElement{
+  width: 20%;
+  height: 40px;
+  margin: 2%;
+  border: black 3px solid;
+  border-radius: 5px;
+}
+#closeBtn{
+  background-color: #F08080;
+  border-color: #F08080;
+  color: white;
+  border-radius: 15px;
+  width: fit-content;
+}
+.paginationBttns{
+  color: #000000;
+  width: 80%;
+  height: auto;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+.paginationBttns a {
+  border: rgb(50, 98, 189) 1px solid;
+  color: black;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+}
+.paginationBttns a:hover{
+  background-color: #9690eb;
+  color: white;
+}
+.paginationActive a{
+  background-color: rgb(50, 98, 189);
+  color: white;
 }

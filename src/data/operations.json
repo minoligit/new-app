@@ -1,0 +1,26 @@
+[
+    {
+        "name":"int(2)",
+        "operations":["=", "!=", ">","<", ">=", "<="]
+    },
+    {
+        "name":"int(3)",
+        "operations":["=", "!=", ">","<", ">=", "<="]
+    },
+    {
+        "name":"int(11)",
+        "operations":["=", "!=", ">","<", ">=", "<="]
+    },
+    {
+        "name":"varchar",
+        "operations":["=", "!=", "LIKE"]
+    },
+    {
+        "name":"text",
+        "operations":["=", "!=", "Start with", "End with", "Between"]
+    },
+    {
+        "name":"double",
+        "operations":["=", "!=", ">","<", ">=", "<="]
+    }
+]

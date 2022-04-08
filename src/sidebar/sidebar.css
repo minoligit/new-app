@@ -1,0 +1,86 @@
+@media screen and (max-width: 1024px) {
+  #dropText {
+      display: none;
+  }
+  #headerbutton{
+    background-color:rgb(87, 85, 85);
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+    padding: 0;
+  }
+  .dropdown-menu{
+    background-color:rgb(128, 126, 126);
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #addSideBar {
+      display: none;
+  }
+}
+.ShowMenu{
+  background-color:  rgb(146, 146, 228);
+  height: 60px;
+  width: 12%;
+  position: fixed;
+  z-index: 10;
+}
+#SideBar{
+  color: white;
+  height: 100%;
+  width: 12%;
+  line-height: 180%;
+  float: left;
+  position: fixed;
+  top: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#SideBar::-webkit-scrollbar{
+  display: none;
+}
+#SideBarList{
+  list-style: none;
+  padding-left: 15%;
+  width: 100%;
+}
+#SideBarElm{
+  color: white;
+  text-decoration: none;
+  font-size: larger;
+}
+#dropDownElm{
+  background-color:rgb(128, 126, 126);
+  width: 100%;
+  position: relative;
+  padding: 20px;
+  overflow:hidden;
+}
+#SideBarElm:hover{
+  color: #90b0eb;
+}
+#dropText{
+  margin-left: 10%;
+}
+.dropdown-menu{
+  padding: 0;
+}
+.dropdown-toggle::after{
+  color: white;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+  padding: 0;
+}
+.navbar-nav{
+  background-color:rgb(87, 85, 85);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  padding-top: 20px;
+}
+navbar-collapse collapse show{
+  background-color:rgb(87, 85, 85);
+}
