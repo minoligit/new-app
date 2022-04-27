@@ -41,6 +41,13 @@ export const BarData = [
         iconClosed: <FaIcons.FaSortDown/>
     },
     {
+        title: "Notifications",
+        path: "../pages/notifications",
+        icon: <FaIcons.FaRegBell />,
+        iconOpened: <FaIcons.FaSort/>,
+        iconClosed: <FaIcons.FaSortDown/>
+    },
+    {
         title: "People",
         path: "../pages/people",
         icon: <FaIcons.FaUsers />,

@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from "react";
 import Axios from 'axios';
 import Modal from 'react-modal';
-import AddUser from "../modals/addUser";
 import { Row, Col, Image } from "react-bootstrap";
 import '../App.css';
 
@@ -57,7 +56,6 @@ function AboutUs(){
             </div><br/><br/>
             <div>
                 <h4>Achievements</h4>
-                <AddUser/>
             </div><br/><br/> 
         </div>
     );

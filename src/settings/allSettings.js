@@ -2,48 +2,66 @@ import React, {useState} from "react";
 import '../App.css';
 import Modal from 'react-modal';
 import * as FiIcons from "react-icons/fi";
-import SetTheme from "../settings/setTheme";
-import SetAccount from "../settings/setAccount";
-import SetPassword from "../settings/setPassword";
+import General from "../settings/setGeneral";
+import Profile from "../settings/setProfile";
+import Appearance from "../settings/setAppearance";
+import Privacy from "../settings/setPrivacy";
 
 function AllSettings(){
 
-    const [themeIsOpen, setThemeIsOpen] = useState(false);
-    const [accountIsOpen, setAccountIsOpen] = useState(false);
-    const [pswdResetIsOpen, setPswdIsOpen] = useState(false);
+    const [generalIsOpen, setGeneralIsOpen] = useState(false);
+    const [profileIsOpen, setProfileIsOpen] = useState(false);
+    const [appearanceIsOpen, setAppearanceIsOpen] = useState(false);
+    const [privacyIsOpen, setPrivacyIsOpen] = useState(false);
 
-	const setThemeTrue = ()=> { setThemeIsOpen(true); }
-	const setThemeFalse = ()=> { setThemeIsOpen(false); }
-    const setAccountTrue = ()=> { setAccountIsOpen(true); }
-	const setAccountFalse = ()=> { setAccountIsOpen(false); }
-    const setPswdTrue = ()=> { setPswdIsOpen(true); }
-	const setPswdFalse = ()=> { setPswdIsOpen(false); }
+	const setGeneralTrue = ()=> { setGeneralIsOpen(true); }
+	const setGeneralFalse = ()=> { setGeneralIsOpen(false); }
+    const setProfileTrue = ()=> { setProfileIsOpen(true); }
+	const setProfileFalse = ()=> { setProfileIsOpen(false); }
+    const setAppearanceTrue = ()=> { setAppearanceIsOpen(true); }
+	const setAppearanceFalse = ()=> { setAppearanceIsOpen(false); }
+    const setPrivacyTrue = ()=> { setPrivacyIsOpen(true); }
+	const setPrivacyFalse = ()=> { setPrivacyIsOpen(false); }
+
+    const dropDown = {
+        backgroundColor: "#7e7ea1",
+        fontSize: "80%",
+        fontStyle: "bold",
+        padding: "5%"
+    };
 
     return(
         <div>
             <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" id="headerbutton">
-                <FiIcons.FiSettings/><span id="dropText">Settings</span>
+                <FiIcons.FiSettings id="headericon"/>
             </button>
-            <div className="dropdown-menu">
-                <button class="dropdown-item" onClick={setThemeTrue}>Change Theme</button>
+            <div className="dropdown-menu" style={dropDown}>
+                <button class="dropdown-item" style={{color:"#ffffff"}} id="headerDropDown" onClick={setGeneralTrue}>General</button>
+                <div className="Modal">
+                    <Modal isOpen={generalIsOpen} id="popmodal">
+                        <button id='closeBtn' onClick={setGeneralFalse}>X</button>
+                        <General />
+                    </Modal>
+                </div>
+                <button class="dropdown-item" style={{color:"#ffffff"}} id="headerDropDown" onClick={setProfileTrue}>Profile</button>
                 <div className="modal fade" role="dialog">
-                    <Modal isOpen={themeIsOpen} id="popmodal">
-                        <button id='closeBtn' onClick={setThemeFalse}>X</button>
-                        <SetTheme />
+                    <Modal isOpen={profileIsOpen} id="popmodal">
+                        <button id='closeBtn' onClick={setProfileFalse}>X</button>
+                        <Profile />
                     </Modal>
                 </div>
-                <button class="dropdown-item" onClick={setAccountTrue}>Change Account</button>
+                <button class="dropdown-item" style={{color:"#ffffff"}} id="headerDropDown" onClick={setAppearanceTrue}>Appearance</button>
                 <div className="Modal">
-                    <Modal isOpen={accountIsOpen} id="popmodal">
-                        <button id='closeBtn' onClick={setAccountFalse}>X</button>
-                        <SetAccount />
+                    <Modal isOpen={appearanceIsOpen} id="popmodal">
+                        <button id='closeBtn' onClick={setAppearanceFalse}>X</button>
+                        <Appearance />
                     </Modal>
                 </div>
-                <button class="dropdown-item" onClick={setPswdTrue}>Reset Password</button>
+                <button class="dropdown-item" style={{color:"#ffffff"}} id="headerDropDown" onClick={setPrivacyTrue}>Privacy</button>
                 <div className="Modal">
-                    <Modal isOpen={pswdResetIsOpen} id="popmodal">
-                        <button id='closeBtn' onClick={setPswdFalse}>X</button>
-                        <SetPassword />
+                    <Modal isOpen={privacyIsOpen} id="popmodal">
+                        <button id='closeBtn' onClick={setPrivacyFalse}>X</button>
+                        <Privacy />
                     </Modal>
                 </div>
             </div>

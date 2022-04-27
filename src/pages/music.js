@@ -7,23 +7,15 @@ function Music (){
     const [year, setYear] = useState();
     const [songList, setSongList] = useState([]);
 
-    const submitYear = () => {
+    const submitYear = (e) => {
         const str = {
             year:year
         };
         Axios.post("http://localhost:8080/selectedMusic", str).then((res) => {
-            console.log("sdas");
             setSongList(res.data);
         });
-    }
-    // useEffect(() => {
-    //     const str = {
-    //         year:year
-    //     };
-    //     Axios.post("http://localhost:8080/selectedMusic", str).then((res) => {
-    //         setSongList(res.data);
-    //     });
-    // }, []);
+        e.preventDefault();
+    };
     const labelStyle = {
         width: "20%"
     };
@@ -44,15 +36,18 @@ function Music (){
             </form><br/><br/>
             <table id="tableStyle">
                 <tr>
-                    <th>Name</th><th>Artists</th><th>Duration(ms)</th><th>Popularity</th><th>Tempo</th>
+                    <th>Name</th><th>Artists</th><th>Released Date</th><th>Duration(ms)</th>
+                    <th>Popularity</th><th>Tempo</th><th>Energy</th>
                 </tr>
                 {songList.map(data => (
                     <tr key={data.songId}>
                         <td>{data.name}</td>
                         <td>{data.artists}</td>
+                        <td>{data.release_date}</td>
                         <td>{data.duration_ms}</td>
                         <td>{data.popularity}</td>
                         <td>{data.tempo}</td>
+                        <td>{data.energy}</td>
                     </tr>
                 ))}
                 <tr>

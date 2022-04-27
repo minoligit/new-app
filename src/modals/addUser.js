@@ -43,8 +43,7 @@ function AddUser() {
 
     return(
         <div id="AddElement">
-            <form id="form1" style={{width:"50%"}}>
-                <h3>Register</h3><br/>
+            <form id="form1" style={{width:"100%"}}><br></br>
                 <label style={labelStyle}>Name</label>
                 <input id="addInput" type="text" name="user_name" required onChange={(e)=>{setUserName(e.target.value)}}/><br/><br/>
                 <label style={labelStyle}>Address</label>

@@ -26,7 +26,7 @@ function SendEmail(){
     };
 
     return(
-        <div>
+        <div className="Content">
             <form id="form4">
                 <label style={labelStyle}>To</label>
                 <input id="addInput" type="text" name="receiver" onChange={(e)=>{setReceiver(e.target.value)}}/><br/><br/>

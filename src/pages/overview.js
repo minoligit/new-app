@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Axios from 'axios';
 import '../App.css';
 import { Row, Col } from "react-bootstrap";
@@ -6,17 +6,6 @@ import EventLine from "../charts/eventline";
 import SearchEvent from "../components/searchEvent";
 
 function OverView(){
-
-    const [addEventIsOpen, setAddEventIsOpen] = useState(true);
-    const [searchEventIsOpen, setSearchEventIsOpen] = useState(false);
-    const setAddEventTrue = ()=> {
-		setAddEventIsOpen(!addEventIsOpen);
-        setSearchEventIsOpen(!searchEventIsOpen);
-	}
-	// const setSearchEventTrue = ()=> {
-	// 	setAddEventIsOpen(!addEventIsOpen);
-    //     setSearchEventIsOpen(true);
-	// }
 
     const [title,setTitle] = useState("");
     const [content,setContent] = useState("");
@@ -33,6 +22,18 @@ function OverView(){
         Axios.post("http://localhost:8080/addEvent", str).then((res) => {
         });
     };
+    useEffect(() => {
+        document.getElementById("addEvent").style.display="block";
+        document.getElementById("searchEvent").style.display="none";    
+    }, []);
+    function setAddEvent(){
+        document.getElementById("addEvent").style.display="block";
+        document.getElementById("searchEvent").style.display="none"; 
+    };
+    function setSearchEvent(){
+        document.getElementById("searchEvent").style.display="block";
+        document.getElementById("addEvent").style.display="none"; 
+    }
 
     const labelStyle = {
         width: "40%"
@@ -48,10 +49,10 @@ function OverView(){
             <Row>
                 <Col><EventLine/></Col>
                 <Col>
-                    <button id="selectButton" onClick={setAddEventTrue}>Add New Event</button>
-                    <button id="selectButton" onClick={setAddEventTrue}>Search Event</button>
-                    <div isOpen={addEventIsOpen}>
-                    <form id="form1">
+                    <button id="selectButton" onClick={setAddEvent}>Add New Event</button>
+                    <button id="selectButton" onClick={setSearchEvent}>Search Event</button>
+                    <div id="addEvent" style={{padding:"50px"}}>
+                    <form>
                         <label style={labelStyle}>Title</label>
                         <input id="addInput" type="text" name="title" onChange={(e)=>{setTitle(e.target.value)}}/><br/><br/>
                         <label style={labelStyle}>content</label>
@@ -67,7 +68,7 @@ function OverView(){
                         </div>        
                     </form>
                     </div>
-                    <div isOpen={searchEventIsOpen}>
+                    <div id="searchEvent" style={{padding:"50px"}}>
                         <SearchEvent/>
                     </div>
                 </Col>

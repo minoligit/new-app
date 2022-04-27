@@ -1,13 +1,34 @@
+/* :root.default{
+  --sidebarColor: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+  --textColor2: white;
+  --hoverColor: #9690eb;
+}
+:root.dark{
+  --sidebarColor: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+  --textColor2: black;
+  --hoverColor: #90b0eb;
+}
+:root.light{
+  --sidebarColor: linear-gradient(to bottom right, rgb(208, 211, 214), rgb(184, 184, 218));
+  --textColor2: white;
+  --hoverColor: #90b0eb;
+} */
+
+:root{
+  --sidebarColor: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+  --textColor2: white;
+  --hoverColor: #9690eb;
+}
+
 @media screen and (max-width: 1024px) {
   #dropText {
       display: none;
   }
   #headerbutton{
     background-color:rgb(87, 85, 85);
-    color: white;
+    color: var(--textColor2);
     text-decoration: none;
     font-size: larger;
-    padding: 0;
   }
   .dropdown-menu{
     background-color:rgb(128, 126, 126);
@@ -20,20 +41,22 @@
   }
 }
 .ShowMenu{
-  background-color:  rgb(146, 146, 228);
-  height: 60px;
+  background-color:  rgb(42, 42, 44);
+  height: 80px;
   width: 12%;
   position: fixed;
   z-index: 10;
 }
 #SideBar{
-  color: white;
+  background-image: var(--sidebarColor);
+  color: var(--textColor2);
   height: 100%;
   width: 12%;
   line-height: 180%;
   float: left;
   position: fixed;
   top: 0;
+  left: 0;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -42,16 +65,21 @@
 }
 #SideBarList{
   list-style: none;
+  padding-top: 10%;
   padding-left: 15%;
   width: 100%;
 }
 #SideBarElm{
-  color: white;
+  color: var(--textColor2);
   text-decoration: none;
   font-size: larger;
+  border: none;
+  background-color: transparent;
+  width: 100%;
 }
 #dropDownElm{
   background-color:rgb(128, 126, 126);
+  /* background-color: transparent; */
   width: 100%;
   position: relative;
   padding: 20px;
@@ -73,7 +101,8 @@
   padding: 0;
 }
 .navbar-nav{
-  background-color:rgb(87, 85, 85);
+  background-color: transparent;
+  /* background-color:rgb(87, 85, 85); */
   width: 100%;
   height: 100%;
   position: absolute;
@@ -82,5 +111,5 @@
   padding-top: 20px;
 }
 navbar-collapse collapse show{
-  background-color:rgb(87, 85, 85);
+  background-color:rgb(128, 126, 126);
 }

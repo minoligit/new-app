@@ -1,0 +1,246 @@
+:root{
+    --backgroundColor: rgb(244, 247, 247);
+    --headerColor: linear-gradient(to bottom right, rgb(102, 116, 153), rgb(64, 51, 110));
+    --textColor1: black;
+    --textColor2: white;
+    --hoverColor: #9690eb;
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    .Content{
+      padding: 30px;
+      /* padding-top: 20px; */
+      width: 88%;
+      position: absolute;
+      left: 12%;
+      top: 60px;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    #AppName {
+        display: none;
+    }
+    .Header{
+      display: none;
+    }
+    .Content{
+      padding-left: 20px;
+      padding-top: 20px;
+      width: 88%;
+      position: absolute;
+      left: 12%;
+      top: 5px;
+    }
+  }
+  
+  .App {
+    background-color: var(--backgroundColor);
+    color: var(--textColor1);
+    font-size: 120%;
+  }
+  #container{
+    padding: 0;
+    margin: 0;
+  }
+  .Header{
+    background-image: var(--headerColor);
+    height: 80px;
+    width: 88%;
+    font-size: larger;
+    position: absolute;
+    top: 0;
+    left: 12%;
+    margin: 0;
+  }
+  #headerbutton{
+    background-color: transparent;
+    border: none;
+    color: var(--textColor2);
+    height: 50px;
+    width: auto;
+    vertical-align: baseline;
+  }
+  #headericon{
+    background-color: #7e7ea1;
+    border-radius: 50%;
+    color: var(--textColor2);
+    width: 50px;
+    height: 50px;
+    padding: 20%;
+  }
+  #headerbutton :hover{
+    color: var(--hoverColor);
+  }
+  #headericon :hover{
+    color: var(--hoverColor);
+  }
+  #headerDropDown{
+    background-color: transparent;
+    color: var(--textColor2);
+    text-decoration: none
+  }
+  #headerDropDown :hover{
+    background-color: white;
+    color: black;
+  }
+  #gridRow{
+    height: 8vh;
+    /* display: flex; */
+    vertical-align: baseline;
+  }
+  #loginForm{
+    background-color: rgb(233, 231, 231);
+    font-size: larger;
+  }
+  .Footer{
+    background-color:rgb(233, 231, 231);
+    height: 60px;
+    width: 100%;
+    padding-left: 15%;
+    /* margin-left: 14vw; */
+  }
+  #AppName{
+    color: var(--textColor2);
+    font-size: x-large;
+    font-style: italic;
+  }
+  .App-link {
+    color: #61dafb;
+  }
+  .linkStyle{
+    color: var(--textColor2);
+    text-decoration: none;
+  }
+  link:hover{
+    color: black;
+  }
+  .Body{
+    color: var(--textColo1);
+    width: 100%;
+    margin: 0;
+    /* display: flex; */
+  }
+  #space{
+    margin-left: 10%;
+  }
+  #tableStyle{
+    border: 1px solid black;
+    padding: 5%;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #tableStyle th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #9690eb;
+    color: rgb(5, 5, 5);
+  }
+  #tableStyle tr:nth-child(even){
+    background-color: #d3d3f1;
+  }
+  #tableStyle tr:hover{
+    color: rgb(50, 98, 189);
+  }
+  #searchbox{
+    width: 200px;
+    border: black 2px solid;
+    border-radius: 10px;
+  }
+  #addInput{
+    width: 50%;
+    height: 10%;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 6px;
+  }
+  #elementBox{
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 40%;
+    padding: 5%;
+  }
+  #popmodal{
+    height: 600px;
+    width: 800px;
+    font-size: larger;
+    margin: auto;
+  }
+  #popmodal-large{
+    font-size: larger;
+    resize: both;
+  }
+  #history{
+    height: 600px;
+  }
+  #vision{
+    height: 600px;
+  }
+  #achievements{
+    height: 600px;
+  }
+  #selectButton{
+    background-color: white;
+    color: black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  #selectButton:current{
+    background-Color: blueviolet; 
+    color: black;
+  }
+  #searchBar{
+    background-color: rgb(204, 206, 207);
+    font-style: bold;
+    border-color: rgb(165, 163, 163);
+    position: fixed;
+    width: 12%;
+    padding: 1%;
+    text-align: center;
+    overflow: auto;
+    padding-bottom: 5%;
+    top: 10%;
+    bottom: 10%;
+    resize: both;
+  }
+  #searchElement{
+    width: 90%;
+    height: 30px;
+    margin: 2%;
+    border: black 2px solid;
+    border-radius: 5px;
+  }
+  #closeBtn{
+    background-color: #F08080;
+    border-color: #F08080;
+    color: white;
+    border-radius: 15px;
+    width: fit-content;
+    position: fixed;
+  }
+  .paginationBttns{
+    color: #000000;
+    width: 80%;
+    height: auto;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+  }
+  .paginationBttns a {
+    border: rgb(50, 98, 189) 1px solid;
+    color: black;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+  }
+  .paginationBttns a:hover{
+    background-color: var(--hoverColor);
+    color: white;
+  }
+  .paginationActive a{
+    background-color: rgb(50, 98, 189);
+    color: white;
+  }
+  

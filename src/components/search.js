@@ -12,6 +12,8 @@ function SearchBar({search,sendToEmployees}){
     const [selectedHeader, setSelectedHeader] = useState("");
     const [selectedOperation, setSelectedOperation] = useState("");
     const [input, setInput] = useState(null);
+    const [suggestions, setSuggestions] = useState([]);
+    var Min,Max;
 
     useEffect(() => {
         Axios.get("http://localhost:8080/sendEmpDescription").then((res) => {
@@ -28,6 +30,40 @@ function SearchBar({search,sendToEmployees}){
             }
         }   
     }
+    function setInputVal(e) {
+        setInput(e.target.value);       
+        if(selectedColumn==="char"||selectedColumn==="varchar"||selectedColumn==="text"){ 
+            const str = {
+                header:selectedHeader,
+                operation:selectedOperation,
+                input:e.target.value                
+            }          
+            Axios.post("http://localhost:8080/getSuggestions",str).then((res) => {
+                setSuggestions(res.data);
+            });
+        }
+        else if(selectedColumn==="int(2)"||selectedColumn==="int(3)"){  
+            const str = {
+                header:selectedHeader               
+            }         
+            Axios.post("http://localhost:8080/getMinMax",str).then((res) => {
+                console.log(Min);
+            });
+        }
+    }
+    function displaySug(){
+        if(selectedColumn==="char"||selectedColumn==="varchar"||selectedColumn==="text"){
+            return(
+                <div>
+                    <datalist id="sug" value={input} onChange={(e)=>{setInput(e.target.value)}}>
+                        {suggestions.map(data=>(
+                            <option value={data.header}/>
+                        ))}
+                    </datalist>
+                </div>
+            )
+        }
+    }
     function getType(val){
         let str = "";
         if(val.startsWith("int")||val.startsWith("double")){str = "number";}
@@ -40,21 +76,23 @@ function SearchBar({search,sendToEmployees}){
         <div>
             <form>
                 <div id="form8">
+                    {selectedHeader}
                     <select onChange={(e)=>{setHead(e)}} id="searchElement">
                         <option>Select Column</option>
                         {columnsList.map(data=>(
                             <option value={data.Type} id={data.Field}>{data.Field}</option>
                         ))}
-                    </select>
+                    </select><br/>
                     <select value={selectedOperation} onChange={(e)=>{setSelectedOperation(e.target.value)}} 
                     id="searchElement">
                         <option>Select Operation</option>
                         {operationsList.map(data=>(
                             <option value={data}>{data}</option>
                         ))}
-                    </select>
-                    <input type={getType(selectedColumn)} value={input} placeholder="Enter Value" 
-                    onChange={(e)=>{setInput(e.target.value)}} id="searchElement"/>
+                    </select><br/>
+                    <input list="sug" type={getType(selectedColumn)} value={input} placeholder="Enter Value" 
+                    onChange={(e)=>{setInputVal(e)}} id="searchElement" min={Min} max={Max}/>
+                        {displaySug()}
                     {sendToEmployees(search,selectedHeader,selectedOperation,input)}
                 </div>
             </form>

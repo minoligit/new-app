@@ -1,12 +1,13 @@
 import React from "react";
 import '../App.css';
 
-function setAccountFalse(){
+function Profile(){
     return(
         <div className="Content">
-            <h3>Account Settings</h3>
+            <h3>Profile Settings</h3><br/><br/>
+            
         </div>
     );
 }
 
-export default setAccountFalse;
+export default Profile;

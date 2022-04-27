@@ -1,3 +1,33 @@
+/* :root.default{
+  --backgroundColor: rgb(244, 247, 247);
+  --headerColor: linear-gradient(to bottom right, rgb(102, 116, 153), rgb(64, 51, 110));
+  --textColor1: black;
+  --textColor2: white;
+  --hoverColor: #9690eb;
+}
+:root.dark{
+  --backgroundColor: black;
+  --headerColor: linear-gradient(to bottom right, rgb(102, 116, 153), rgb(64, 51, 110));
+  --textColor1: white;
+  --textColor2: black;
+  --hoverColor: #90b0eb;
+}
+:root.light{
+  --backgroundColor: white;
+  --headerColor: linear-gradient(to bottom right, rgb(133, 154, 212), rgb(112, 95, 173));
+  --textColor1: black;
+  --textColor2: white;
+  --hoverColor: #90b0eb;
+} */
+
+:root{
+  --backgroundColor: rgb(244, 247, 247);
+  --headerColor: linear-gradient(to bottom right, rgb(102, 116, 153), rgb(64, 51, 110));
+  --textColor1: black;
+  --textColor2: white;
+  --hoverColor: #9690eb;
+}
+
 @media only screen and (min-width: 1024px) {
   .Content{
     padding: 30px;
@@ -24,9 +54,10 @@
     top: 5px;
   }
 }
+
 .App {
-  background-color: rgb(244, 247, 247);
-  color: black;
+  background-color: var(--backgroundColor);
+  color: var(--textColor1);
   font-size: 120%;
 }
 #container{
@@ -34,8 +65,8 @@
   margin: 0;
 }
 .Header{
-  background-color: rgb(85, 85, 206);
-  height: 60px;
+  background-image: var(--headerColor);
+  height: 80px;
   width: 88%;
   font-size: larger;
   position: absolute;
@@ -44,30 +75,44 @@
   margin: 0;
 }
 #headerbutton{
-  background-color: rgb(85, 85, 206);
+  background-color: transparent;
   border: none;
-  color: white;
+  color: var(--textColor2);
   height: 50px;
   width: auto;
+  vertical-align: baseline;
 }
 #headericon{
-  background-color: rgb(117, 117, 199);
+  background-color: #7e7ea1;
   border-radius: 50%;
-  color: white;
+  color: var(--textColor2);
   width: 50px;
   height: 50px;
   padding: 20%;
 }
 #headerbutton :hover{
-  color: #90b0eb;
+  color: var(--hoverColor);
 }
 #headericon :hover{
-  color: #90b0eb;
+  color: var(--hoverColor);
+}
+#headerDropDown{
+  background-color: transparent;
+  color: var(--textColor2);
+  text-decoration: none
+}
+#headerDropDown :hover{
+  background-color: white;
+  color: black;
 }
 #gridRow{
   height: 8vh;
   /* display: flex; */
   vertical-align: baseline;
+}
+#loginForm{
+  background-color: rgb(233, 231, 231);
+  font-size: larger;
 }
 .Footer{
   background-color:rgb(233, 231, 231);
@@ -77,7 +122,7 @@
   /* margin-left: 14vw; */
 }
 #AppName{
-  color: white;
+  color: var(--textColor2);
   font-size: x-large;
   font-style: italic;
 }
@@ -85,14 +130,14 @@
   color: #61dafb;
 }
 .linkStyle{
-  color: white;
+  color: var(--textColor2);
   text-decoration: none;
 }
 link:hover{
   color: black;
 }
 .Body{
-  color: black;
+  color: var(--textColo1);
   width: 100%;
   margin: 0;
   /* display: flex; */
@@ -102,7 +147,7 @@ link:hover{
 }
 #tableStyle{
   border: 1px solid black;
-  padding: 5vh;
+  padding: 5%;
   width: 100%;
   border-collapse: collapse;
 }
@@ -141,6 +186,17 @@ link:hover{
   height: 600px;
   width: 800px;
   font-size: larger;
+  margin: auto;
+}
+#popmodal-large{
+  font-size: larger;
+  resize: both;
+}
+#popmodal-small{
+  height: 200px;
+  width: 400px;
+  margin: auto;
+  font-size: larger;
 }
 #history{
   height: 600px;
@@ -162,20 +218,24 @@ link:hover{
   color: black;
 }
 #searchBar{
-  background-color: rgb(242, 246, 248);
+  background-color: rgb(204, 206, 207);
   font-style: bold;
-  border-color: rgb(231, 231, 231);
-  border-style: inset;
-  width: 90%;
-  padding: 2%;
-  margin: auto;
+  border-color: rgb(165, 163, 163);
+  position: fixed;
+  width: 12%;
+  padding: 1%;
   text-align: center;
+  overflow: auto;
+  padding-bottom: 5%;
+  top: 10%;
+  bottom: 10%;
+  resize: both;
 }
 #searchElement{
-  width: 20%;
-  height: 40px;
+  width: 90%;
+  height: 30px;
   margin: 2%;
-  border: black 3px solid;
+  border: black 2px solid;
   border-radius: 5px;
 }
 #closeBtn{
@@ -184,6 +244,7 @@ link:hover{
   color: white;
   border-radius: 15px;
   width: fit-content;
+  position: fixed;
 }
 .paginationBttns{
   color: #000000;
@@ -203,7 +264,7 @@ link:hover{
   padding: 10px;
 }
 .paginationBttns a:hover{
-  background-color: #9690eb;
+  background-color: var(--hoverColor);
   color: white;
 }
 .paginationActive a{

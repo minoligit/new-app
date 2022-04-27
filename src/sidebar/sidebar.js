@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect }  from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import "./sidebar.css";
@@ -9,30 +9,8 @@ import * as FaIcons from "react-icons/fa";
 import AllSettings from "../settings/allSettings";
 
 function SideBar() {
-
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
-  // const [subnav, setSubnav] = useState(false);
-  // const showSubnav = () => setSubnav(!subnav);
-
+  
   return (
-    // <div className="SideBar">
-    //   {/* <FaIcons.FaBars onClick={showSidebar}/> */}
-    //   <ul id="SideBarList">
-    //       {BarData.map((item, index) => (
-    //         <li key={index}>
-    //           <Link to={item.path} id="SideBarElm" onClick={item.sub && showSubnav}>
-    //             {item.icon}
-    //             <span id="space">{item.title}</span>
-    //           {/* <div>
-    //             {item.sub && subnav? item.iconOpened:item.sub? item.iconClosed:null}
-    //           </div> */}
-    //           </Link><br/><br/>
-    //         </li>
-    //       ))}
-    //   </ul>
-    // </div>
-
     <div>
       <Navbar bg="light" expand="lg" id="container">
         <div id="SideBar">
@@ -71,10 +49,6 @@ function SideBar() {
                   <span id="dropText">Dashboard</span></Link><br/><br/>
                 </li>
                 <li>
-                  <Link to="../pages/employees" id="SideBarElm"><FaIcons.FaShip />
-                  <span id="dropText">Employees</span></Link><br/><br/>
-                </li>
-                <li>
                   <Link to="../pages/people" id="SideBarElm"><FaIcons.FaUsers />
                   <span id="dropText">People</span></Link><br/><br/>
                 </li>
@@ -84,11 +58,12 @@ function SideBar() {
                 </li>
                 <li>
                   <Link to="../pages/places" id="SideBarElm"><FaIcons.FaMap />
-                  <span id="dropText">Places</span></Link><br/><br/>
+                  <span id="dropText">Places</span></Link><br/>
                 </li>
                 <li id="addSideBar">
-                  <div className="dropdown"> 
-                      <AllSettings/>
+                  <div className="dropdown" id="SideBarElm"> 
+                    <span id="dropText"></span><br/>
+                    <AllSettings/>
                   </div>
                 </li>
               </ul>
